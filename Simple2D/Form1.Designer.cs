@@ -44,8 +44,6 @@
             gameTimer = new System.Windows.Forms.Timer(components);
             lbScore = new Label();
             pbGround = new PictureBox();
-            pictureBox11 = new PictureBox();
-            pbBackground = new PictureBox();
             pictureBox6 = new PictureBox();
             pictureBox10 = new PictureBox();
             pictureBox12 = new PictureBox();
@@ -60,6 +58,8 @@
             pictureBox26 = new PictureBox();
             pictureBox27 = new PictureBox();
             pictureBox28 = new PictureBox();
+            pbBackground = new PictureBox();
+            pictureBox3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPlayer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -72,8 +72,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbDoorClose).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbGround).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbBackground).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
@@ -88,6 +86,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox26).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbBackground).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -110,6 +110,7 @@
             pbPlayer.TabIndex = 2;
             pbPlayer.TabStop = false;
             pbPlayer.Tag = "player";
+            // 
             // pictureBox4
             // 
             pictureBox4.BackgroundImage = Properties.Resources.platform;
@@ -196,7 +197,7 @@
             // pbDoorClose
             // 
             pbDoorClose.Image = Properties.Resources.door_closed;
-            pbDoorClose.Location = new Point(1775, 135);
+            pbDoorClose.Location = new Point(1774, 135);
             pbDoorClose.Name = "pbDoorClose";
             pbDoorClose.Size = new Size(60, 90);
             pbDoorClose.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -213,42 +214,22 @@
             // lbScore
             // 
             lbScore.AutoSize = true;
-            lbScore.Font = new Font("Stencil", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbScore.Font = new Font("Stencil", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             lbScore.Location = new Point(12, 9);
             lbScore.Name = "lbScore";
-            lbScore.Size = new Size(183, 42);
+            lbScore.Size = new Size(145, 32);
             lbScore.TabIndex = 26;
             lbScore.Text = "Score : 0";
             // 
             // pbGround
             // 
             pbGround.BackgroundImage = Properties.Resources.platform;
-            pbGround.Location = new Point(-39, 431);
+            pbGround.Location = new Point(0, 430);
             pbGround.Name = "pbGround";
-            pbGround.Size = new Size(1966, 50);
+            pbGround.Size = new Size(2000, 50);
             pbGround.TabIndex = 27;
             pbGround.TabStop = false;
-            pbGround.Tag = "ground";
-            // 
-            // pictureBox11
-            // 
-            pictureBox11.BackgroundImage = Properties.Resources.platform;
-            pictureBox11.Location = new Point(203, 522);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new Size(1966, 50);
-            pictureBox11.TabIndex = 27;
-            pictureBox11.TabStop = false;
-            // 
-            // pbBackground
-            // 
-            pbBackground.Image = Properties.Resources.background_new;
-            pbBackground.Location = new Point(0, 0);
-            pbBackground.Name = "pbBackground";
-            pbBackground.Size = new Size(2000, 480);
-            pbBackground.SizeMode = PictureBoxSizeMode.AutoSize;
-            pbBackground.TabIndex = 0;
-            pbBackground.TabStop = false;
-            pbBackground.Tag = "background";
+            pbGround.Tag = "platform";
             // 
             // pictureBox6
             // 
@@ -404,13 +385,33 @@
             pictureBox28.TabStop = false;
             pictureBox28.Tag = "coin";
             // 
+            // pbBackground
+            // 
+            pbBackground.Image = Properties.Resources.background_new;
+            pbBackground.Location = new Point(0, 0);
+            pbBackground.Name = "pbBackground";
+            pbBackground.Size = new Size(2000, 480);
+            pbBackground.SizeMode = PictureBoxSizeMode.AutoSize;
+            pbBackground.TabIndex = 0;
+            pbBackground.TabStop = false;
+            pbBackground.Tag = "background";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BackgroundImage = Properties.Resources.platform;
+            pictureBox3.Location = new Point(1719, 224);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(165, 50);
+            pictureBox3.TabIndex = 8;
+            pictureBox3.TabStop = false;
+            pictureBox3.Tag = "platform";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(624, 481);
-            Controls.Add(pictureBox11);
             Controls.Add(pbGround);
             Controls.Add(lbScore);
             Controls.Add(pbDoorClose);
@@ -431,6 +432,7 @@
             Controls.Add(pictureBox9);
             Controls.Add(pbCoin);
             Controls.Add(pbKey);
+            Controls.Add(pictureBox3);
             Controls.Add(pictureBox8);
             Controls.Add(pbPlatform);
             Controls.Add(pictureBox2);
@@ -441,7 +443,6 @@
             Controls.Add(pbBackground);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Jumping Shit";
             FormClosed += formIsClose;
             KeyDown += keyIsDown;
@@ -458,8 +459,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbDoorClose).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbGround).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbBackground).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
@@ -474,6 +473,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox26).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox27).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbBackground).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -498,8 +499,6 @@
         private System.Windows.Forms.Timer gameTimer;
         private Label lbScore;
         private PictureBox pbGround;
-        private PictureBox pictureBox11;
-        private PictureBox pbBackground;
         private PictureBox pictureBox6;
         private PictureBox pictureBox10;
         private PictureBox pictureBox12;
@@ -515,5 +514,7 @@
         private PictureBox pictureBox26;
         private PictureBox pictureBox27;
         private PictureBox pictureBox28;
+        private PictureBox pbBackground;
+        private PictureBox pictureBox3;
     }
 }

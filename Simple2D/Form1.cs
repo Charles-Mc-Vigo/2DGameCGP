@@ -3,12 +3,12 @@ namespace Simple2D
     public partial class Form1 : Form
     {
         //game variables
-        bool goRight, goLeft, goJump, hasKey, isDoorClose;
+        bool goRight, goLeft, goJump, hasKey;
         int jumpSpeed = 2;
         int force = 8;
         int score = 0;
         int playerSpeed = 10;
-        int backgroundMovement = 8;
+        int backgroundMovement = 12;
 
         public Form1()
         {
@@ -76,7 +76,7 @@ namespace Simple2D
                 pbBackground.Left += backgroundMovement;
                 assetsBehaviour("forward");
             }
-            if (goRight == true && pbBackground.Left > -1374)
+            if (goRight == true && pbBackground.Left > -1350)
             {
                 pbBackground.Left -= backgroundMovement;
                 assetsBehaviour("backward");
@@ -106,7 +106,33 @@ namespace Simple2D
                         pbPlayer.Top = x.Top - pbPlayer.Height;
                         jumpSpeed = 0;
                     }
+                    x.BringToFront();
                 }
+                if (x is PictureBox && (string)x.Tag == "coin")
+                {
+                    if (pbPlayer.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
+                    {
+                        x.Visible = false;
+                        score += 1;
+                        lbScore.Text = "Score :" + score.ToString();
+                    }
+                }
+            }
+            if (pbPlayer.Bounds.IntersectsWith(pbKey.Bounds))
+            {
+                pbKey.Visible = false;
+                hasKey = true;
+                pbDoorClose.Image = Properties.Resources.door_open;
+            }
+            if (pbPlayer.Bounds.IntersectsWith(pbDoorClose.Bounds) && hasKey == true)
+            {
+                pbDoorClose.Image = Properties.Resources.door_open;
+                gameTimer.Stop();
+                MessageBox.Show("You Win the Game!"+ Environment.NewLine + "Do you want to play again?");
+
+                Form1 restartGame = new Form1();
+                restartGame.Show();
+                this.Hide();
             }
         }
 
@@ -148,7 +174,19 @@ namespace Simple2D
                         x.Left += backgroundMovement;
                     }
                 }
+                if (x is PictureBox && (string)x.Tag == "doorClose")
+                {
+                    if (direction == "backward")
+                    {
+                        x.Left -= backgroundMovement;
+                    }
+                    if (direction == "forward")
+                    {
+                        x.Left += backgroundMovement;
+                    }
+                }
             }
         }
+
     }
 }
