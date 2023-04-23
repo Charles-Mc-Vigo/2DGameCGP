@@ -443,8 +443,8 @@
             Controls.Add(pbBackground);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Jumping Shit";
-            FormClosed += formIsClose;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "2D Platformer";
             KeyDown += keyIsDown;
             KeyUp += keyIsUp;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -486,15 +486,10 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox2;
         private PictureBox pbPlatform;
-        private PictureBox pictureBox7;
         private PictureBox pictureBox8;
         private PictureBox pbKey;
         private PictureBox pbCoin;
         private PictureBox pictureBox9;
-        private PictureBox pictureBox15;
-        private PictureBox pictureBox16;
-        private PictureBox pictureBox17;
-        private PictureBox pictureBox18;
         private PictureBox pbDoorClose;
         private System.Windows.Forms.Timer gameTimer;
         private Label lbScore;
@@ -506,7 +501,6 @@
         private PictureBox pictureBox14;
         private PictureBox pictureBox23;
         private PictureBox pictureBox24;
-        private PictureBox pictureBox25;
         private PictureBox pictureBox19;
         private PictureBox pictureBox20;
         private PictureBox pictureBox21;

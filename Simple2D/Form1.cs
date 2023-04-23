@@ -1,3 +1,5 @@
+using System.Media;
+
 namespace Simple2D
 {
     public partial class Form1 : Form
@@ -5,7 +7,6 @@ namespace Simple2D
         //game variables
         bool goRight, goLeft, goJump, hasKey;
         int jumpSpeed = 2;
-        int force = 8;
         int score = 0;
         int playerSpeed = 10;
         int backgroundMovement = 12;
@@ -50,10 +51,6 @@ namespace Simple2D
             }
         }
 
-        private void formIsClose(object sender, FormClosedEventArgs e)
-        {
-
-        }
 
         //game mechanics and conditions
         private void gameTimer_Tick(object sender, EventArgs e)
@@ -87,7 +84,6 @@ namespace Simple2D
             if (goJump == true && pbPlayer.Top > 0)
             {
                 jumpSpeed = -12;
-                force -= 8;
 
             }
             else
@@ -102,7 +98,6 @@ namespace Simple2D
                 {
                     if (pbPlayer.Bounds.IntersectsWith(x.Bounds))
                     {
-                        force = 8;
                         pbPlayer.Top = x.Top - pbPlayer.Height;
                         jumpSpeed = 0;
                     }
@@ -112,23 +107,33 @@ namespace Simple2D
                 {
                     if (pbPlayer.Bounds.IntersectsWith(x.Bounds) && x.Visible == true)
                     {
+                        SoundPlayer getCoinSound = new SoundPlayer(@"C:\Users\Charles Mc\source\Simple2D\Simple2D\Resources\get coin.wav");
+                        getCoinSound.Play();
                         x.Visible = false;
                         score += 1;
                         lbScore.Text = "Score :" + score.ToString();
                     }
                 }
             }
-            if (pbPlayer.Bounds.IntersectsWith(pbKey.Bounds))
+            if (pbPlayer.Bounds.IntersectsWith(pbKey.Bounds) && hasKey == false)
             {
+                SoundPlayer getKeySound = new SoundPlayer(@"C:\Users\Charles Mc\source\Simple2D\Simple2D\Resources\keyObtained.wav");
+                getKeySound.Play();
+
                 pbKey.Visible = false;
                 hasKey = true;
+
                 pbDoorClose.Image = Properties.Resources.door_open;
             }
             if (pbPlayer.Bounds.IntersectsWith(pbDoorClose.Bounds) && hasKey == true)
             {
                 pbDoorClose.Image = Properties.Resources.door_open;
                 gameTimer.Stop();
-                MessageBox.Show("You Win the Game!"+ Environment.NewLine + "Do you want to play again?");
+
+                SoundPlayer gameSuccessSound = new SoundPlayer(@"C:\Users\Charles Mc\source\Simple2D\Simple2D\Resources\game success.wav");
+                gameSuccessSound.Play();
+
+                MessageBox.Show("You Win the Game!" + Environment.NewLine + "Do you want to play again?");
 
                 Form1 restartGame = new Form1();
                 restartGame.Show();
