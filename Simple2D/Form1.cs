@@ -6,7 +6,7 @@ namespace Simple2D
     {
         //game variables
         bool goRight, goLeft, goJump, hasKey;
-        int jumpSpeed = 2;
+        int jumpSpeed = 0;
         int score = 0;
         int playerSpeed = 10;
         int backgroundMovement = 12;
@@ -83,12 +83,12 @@ namespace Simple2D
             pbPlayer.Top += jumpSpeed;
             if (goJump == true && pbPlayer.Top > 0)
             {
-                jumpSpeed = -12;
+                jumpSpeed = -20;
 
             }
             else
             {
-                jumpSpeed = 12;
+                jumpSpeed = 20;
             }
 
             //collision between player and platform
@@ -134,6 +134,15 @@ namespace Simple2D
                 gameSuccessSound.Play();
 
                 MessageBox.Show("You Win the Game!" + Environment.NewLine + "Do you want to play again?");
+
+                Form1 restartGame = new Form1();
+                restartGame.Show();
+                this.Hide();
+            }
+            if (pbPlayer.Top + pbPlayer.Height > this.ClientSize.Height)
+            {
+                gameTimer.Stop();
+                MessageBox.Show("You Lose the Game!" + Environment.NewLine + "Do you want to play again?");
 
                 Form1 restartGame = new Form1();
                 restartGame.Show();

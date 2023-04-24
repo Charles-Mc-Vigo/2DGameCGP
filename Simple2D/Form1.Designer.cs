@@ -60,6 +60,7 @@
             pictureBox28 = new PictureBox();
             pbBackground = new PictureBox();
             pictureBox3 = new PictureBox();
+            pictureBox7 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbPlayer).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -88,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbBackground).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -226,9 +228,9 @@
             // pbGround
             // 
             pbGround.BackgroundImage = Properties.Resources.platform;
-            pbGround.Location = new Point(0, 430);
+            pbGround.Location = new Point(2, 431);
             pbGround.Name = "pbGround";
-            pbGround.Size = new Size(2000, 50);
+            pbGround.Size = new Size(917, 50);
             pbGround.TabIndex = 27;
             pbGround.TabStop = false;
             pbGround.Tag = "platform";
@@ -408,12 +410,23 @@
             pictureBox3.TabStop = false;
             pictureBox3.Tag = "platform";
             // 
+            // pictureBox7
+            // 
+            pictureBox7.BackgroundImage = Properties.Resources.platform;
+            pictureBox7.Location = new Point(1164, 430);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new Size(762, 50);
+            pictureBox7.TabIndex = 28;
+            pictureBox7.TabStop = false;
+            pictureBox7.Tag = "platform";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(624, 481);
+            Controls.Add(pictureBox7);
             Controls.Add(pbGround);
             Controls.Add(lbScore);
             Controls.Add(pbDoorClose);
@@ -479,6 +492,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox28).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbBackground).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -514,5 +528,6 @@
         private PictureBox pictureBox28;
         private PictureBox pbBackground;
         private PictureBox pictureBox3;
+        private PictureBox pictureBox7;
     }
 }

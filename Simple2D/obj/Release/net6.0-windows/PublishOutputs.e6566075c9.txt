@@ -1,0 +1,5 @@
+C:\Users\Charles Mc\source\Simple2D\Simple2D\bin\Release\net6.0-windows\app.publish\Simple2D.exe
+C:\Users\Charles Mc\source\Simple2D\Simple2D\bin\Release\net6.0-windows\app.publish\Simple2D.dll
+C:\Users\Charles Mc\source\Simple2D\Simple2D\bin\Release\net6.0-windows\app.publish\Simple2D.deps.json
+C:\Users\Charles Mc\source\Simple2D\Simple2D\bin\Release\net6.0-windows\app.publish\Simple2D.runtimeconfig.json
+C:\Users\Charles Mc\source\Simple2D\Simple2D\bin\Release\net6.0-windows\app.publish\Simple2D.pdb
