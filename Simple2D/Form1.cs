@@ -192,6 +192,5 @@ namespace Simple2D
                 }
             }
         }
-
     }
 }

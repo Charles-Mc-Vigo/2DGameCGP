@@ -214,7 +214,9 @@
             // lbScore
             // 
             lbScore.AutoSize = true;
+            lbScore.BackColor = SystemColors.Control;
             lbScore.Font = new Font("Stencil", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            lbScore.ForeColor = Color.Black;
             lbScore.Location = new Point(12, 9);
             lbScore.Name = "lbScore";
             lbScore.Size = new Size(145, 32);
@@ -388,7 +390,7 @@
             // pbBackground
             // 
             pbBackground.Image = Properties.Resources.background_new;
-            pbBackground.Location = new Point(0, 0);
+            pbBackground.Location = new Point(2, 0);
             pbBackground.Name = "pbBackground";
             pbBackground.Size = new Size(2000, 480);
             pbBackground.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -442,6 +444,8 @@
             Controls.Add(pictureBox1);
             Controls.Add(pbBackground);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "2D Platformer";
